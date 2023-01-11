@@ -1,0 +1,70 @@
+<div>
+  <h1>welcome to forssa wallet project</h1>
+  <img
+    src="../../assets/illustrations/Wallet-bro.svg"
+    alt="wallet illustration"
+  />
+  <span *ngIf="!isRegistering" class="web"
+    >new user?
+    <span class="register" (click)="toggleIsRegistering()"
+      >register here</span
+    ></span
+  >
+  <span *ngIf="isRegistering" class="web"
+    >already have an account?
+    <span class="register" (click)="toggleIsRegistering()"
+      >login here</span
+    ></span
+  >
+</div>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <input
+    name="username"
+    type="text"
+    placeholder="username"
+    ngModel
+    [ngClass]="!username.valid && username.touched ? 'not-valid' : ''"
+    #username="ngModel"
+    (blur)="checkError(username)"
+    required
+  />
+  <input
+    name="password"
+    type="password"
+    placeholder="password"
+    #password="ngModel"
+    ngModel
+    [ngClass]="!password.valid && password.touched ? 'not-valid' : ''"
+    (blur)="checkPasswordError(password)"
+    pattern="\w{8,}"
+    required
+  />
+  <input
+    *ngIf="isRegistering"
+    name="confirmPassword"
+    type="password"
+    placeholder="confirm password"
+    #confirmPassword="ngModel"
+    ngModel
+    [ngClass]="
+      !confirmPassword.valid && confirmPassword.touched ? 'not-valid' : ''
+    "
+    (blur)="checkConfirmPasswordError(password.value, confirmPassword)"
+    pattern="\w{8,}"
+    required
+  />
+
+  <button *ngIf="!isRegistering" type="submit">Login</button>
+  <button *ngIf="isRegistering" type="submit">Register</button>
+  <span *ngIf="isRegistering" class="mobile"
+    >new user? <span class="register">register here</span></span
+  >
+  <ul *ngIf="isRegistering">
+    <li>
+      password must be at least 8 characters (lowercase, uppercase, numbers, and
+      underscore)
+    </li>
+  </ul>
+</form>
