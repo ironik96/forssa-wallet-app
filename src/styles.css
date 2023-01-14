@@ -25,7 +25,9 @@
   --link-hover: var(--theme-blue-hover);
   --link-active: var(--theme-blue-active);
 }
-
+* {
+  font-family: "Crimson Pro", serif;
+}
 html,
 body {
   height: 100%;
