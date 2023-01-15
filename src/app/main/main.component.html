@@ -16,9 +16,17 @@
         >Transfer</a
       >
     </li>
+    <li>
+      <a
+        routerLink="/statement"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Statement</a
+      >
+    </li>
     <div class="spacer"></div>
     <p>Hamad</p>
     <img src="../../assets/icons/user-2.svg" alt="account icon" />
   </ul>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet class="content"></router-outlet>

@@ -1,0 +1,14 @@
+.main-container {
+  height: var(--content-height);
+  padding: var(--white-space);
+  box-sizing: border-box;
+}
+form {
+  display: flex;
+  justify-content: center;
+  gap: calc(2 * var(--white-space));
+}
+
+form > p {
+  font-weight: bold;
+}

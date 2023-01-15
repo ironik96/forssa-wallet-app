@@ -2,9 +2,13 @@
   --field-width: 20rem;
   --field-padding-x: 1rem;
   --field-padding-y: 1.25rem;
+  --field-border-radius: 0.75rem;
   --button-padding-x: 1.5rem;
   --button-padding-y: 0.75rem;
   --border-radius: 0.5rem;
+  --navbar-height: 65px;
+  --white-space: 15px;
+  --content-height: calc(100% - var(--navbar-height));
 
   --theme-yellow: hsl(50, 97%, 74%);
   --theme-yellow-hover: hsl(50, 97%, 69%);
@@ -12,21 +16,24 @@
   --theme-blue: hsl(172, 73%, 47%);
   --theme-blue-hover: hsl(172, 73%, 42%);
   --theme-blue-active: hsl(172, 73%, 37%);
-  --theme-purple: #4f0d5a;
+  --theme-purple: hsl(291, 75%, 20%);
+  --theme-purple-hover: hsl(291, 75%, 15%);
+  --theme-purple-active: hsl(291, 75%, 10%);
   --theme-black: #2a2a2a;
   --theme-black-light: hsl(0, 0%, 26%);
   --theme-red: hsl(354, 61%, 28%);
   --theme-red-light: hsl(355, 70%, 91%);
 
-  --button-default: var(--theme-yellow);
-  --button-hover: var(--theme-yellow-hover);
-  --button-active: var(--theme-yellow-active);
+  --button-default: var(--theme-purple);
+  --button-hover: var(--theme-purple-hover);
+  --button-active: var(--theme-purple-active);
 
-  --link-hover: var(--theme-blue-hover);
-  --link-active: var(--theme-blue-active);
+  --link-hover: var(--theme-yellow-hover);
+  --link-active: var(--theme-yellow-active);
 }
 * {
   font-family: "Crimson Pro", serif;
+  font-size: 12px;
 }
 html,
 body {
@@ -39,8 +46,9 @@ body {
 }
 
 button {
+  cursor: pointer;
   background-color: var(--button-default);
-  color: var(--theme-black);
+  color: white;
   font-weight: bold;
   text-transform: capitalize;
   border: none;
@@ -48,10 +56,46 @@ button {
   padding: var(--button-padding-y) var(--button-padding-x);
 }
 button:hover {
-  cursor: pointer;
   background-color: var(--button-hover);
 }
 
 button:active {
   background-color: var(--button-active);
+}
+input {
+  border-radius: var(--field-border-radius);
+  border: none;
+  background-color: var(--theme-black-light);
+  color: white;
+  padding: var(--white-space);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input:focus-visible {
+  outline: invert;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 728px) {
+  * {
+    font-size: 18px;
+  }
 }

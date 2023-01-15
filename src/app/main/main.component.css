@@ -4,7 +4,7 @@
 
 nav {
   background-color: black;
-  height: 65px;
+  height: var(--navbar-height);
 }
 
 ul {
@@ -17,10 +17,6 @@ ul {
   box-sizing: border-box;
 }
 
-.spacer {
-  flex-grow: 1;
-}
-
 li {
   height: 100%;
 }
@@ -30,7 +26,7 @@ li a {
   justify-content: center;
   align-items: center;
   color: white;
-  padding: 0 15px;
+  padding: 0 var(--white-space);
   text-align: center;
   text-decoration: none;
   height: 100%;
@@ -46,5 +42,5 @@ li a:hover:not(.active) {
 }
 
 img {
-  margin: 0 15px;
+  margin: 0 var(--white-space);
 }

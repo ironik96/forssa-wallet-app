@@ -4,12 +4,17 @@ import { AuthGuardService } from './auth-guard.service';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    children: [{ path: 'transfer', component: TransferComponent }],
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'transfer', component: TransferComponent },
+      { path: 'statement', component: TransferComponent },
+    ],
     canActivate: [AuthGuardService],
   },
   { path: 'login', component: LoginComponent },
