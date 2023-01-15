@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuardService } from './auth-guard.service';
 
@@ -13,7 +13,7 @@ import { AuthGuardService } from './auth-guard.service';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
+    MainComponent,
     TransferComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
