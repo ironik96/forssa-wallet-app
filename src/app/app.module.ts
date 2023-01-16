@@ -9,6 +9,7 @@ import { MainComponent } from './main/main.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuardService } from './auth-guard.service';
 import { HomeComponent } from './home/home.component';
+import { StatementComponent } from './statement/statement.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeComponent } from './home/home.component';
     MainComponent,
     TransferComponent,
     HomeComponent,
+    StatementComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [AuthGuardService],

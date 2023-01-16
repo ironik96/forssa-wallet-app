@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { HomeComponent } from './home/home.component';
+import { StatementComponent } from './statement/statement.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'transfer', component: TransferComponent },
-      { path: 'statement', component: TransferComponent },
+      { path: 'statement', component: StatementComponent },
     ],
     canActivate: [AuthGuardService],
   },

@@ -1,0 +1,29 @@
+:host {
+  height: var(--content-height);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: var(--white-space);
+  gap: calc(2 * var(--white-space));
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--white-space);
+}
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+table,
+th,
+td {
+  border: 1px solid;
+  padding: calc(0.5 * var(--white-space));
+}
+table {
+  border-collapse: collapse;
+}
