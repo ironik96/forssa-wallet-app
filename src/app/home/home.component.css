@@ -10,10 +10,7 @@
 
 .container {
   display: flex;
-  border: 1px solid white;
-  border-radius: 20px;
   height: max-content;
-  padding: var(--white-space);
 }
 .withdraw,
 .deposit {

@@ -94,6 +94,12 @@ input::placeholder {
   flex-grow: 1;
 }
 
+.my-border {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: var(--white-space);
+}
+
 @media screen and (min-width: 728px) {
   * {
     font-size: 18px;
