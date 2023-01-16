@@ -5,11 +5,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { TransferComponent } from './transfer/transfer.component';
+import { AuthGuardService } from './auth-guard.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    MainComponent,
+    TransferComponent,
+    HomeComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,18 @@
+.main-container {
+  height: var(--content-height);
+  padding: var(--white-space);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--white-space) * 3);
+}
+
+.container {
+  display: flex;
+  height: max-content;
+}
+.withdraw,
+.deposit {
+  gap: var(--white-space);
+}

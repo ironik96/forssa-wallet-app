@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,8 @@ export class LoginComponent {
   password!: string;
   confirmPassword!: string;
   isRegistering = false;
+
+  constructor(private router: Router) {}
 
   checkError(formControl: NgModel): void {
     if (formControl.valid) {
@@ -45,6 +48,7 @@ export class LoginComponent {
     this.username = formControl.value.username;
     this.password = formControl.value.password;
     this.isRegistering ? this.register() : this.login();
+    this.router.navigate(['home']);
   }
 
   login() {
