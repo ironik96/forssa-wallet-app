@@ -10,6 +10,7 @@ import { TransferComponent } from './transfer/transfer.component';
 import { AuthGuardService } from './auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { StatementComponent } from './statement/statement.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { StatementComponent } from './statement/statement.component';
     HomeComponent,
     StatementComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [AuthGuardService],
   bootstrap: [AppComponent],
 })

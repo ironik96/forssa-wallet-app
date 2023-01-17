@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BackendService } from '../backend.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginComponent {
   confirmPassword!: string;
   isRegistering = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private backend: BackendService) {}
 
   checkError(formControl: NgModel): void {
     if (formControl.valid) {
@@ -43,22 +45,28 @@ export class LoginComponent {
 
   toggleIsRegistering = () => (this.isRegistering = !this.isRegistering);
 
-  onSubmit(formControl: NgForm) {
+  async onSubmit(formControl: NgForm) {
     if (formControl.invalid) return;
     this.username = formControl.value.username;
     this.password = formControl.value.password;
-    this.isRegistering ? this.register() : this.login();
+    this.isRegistering ? await this.register() : await this.login();
     this.router.navigate(['home']);
   }
 
-  login() {
+  async login(): Promise<void> {
     console.log('logging in with the following credentials:');
     console.log('username: ', this.username);
     console.log('password: ', this.password);
   }
-  register() {
-    console.log('registering with the following credentials:');
-    console.log('username: ', this.username);
-    console.log('password: ', this.password);
+  async register(): Promise<void> {
+    console.log('registering ...');
+    this.backend.register(this._currentUser);
+  }
+
+  private get _currentUser(): User {
+    return {
+      username: this.username,
+      password: this.password,
+    };
   }
 }
