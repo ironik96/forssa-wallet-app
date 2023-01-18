@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User } from './models/user.model';
 import { lastValueFrom } from 'rxjs';
 
@@ -11,10 +11,24 @@ export class BackendService {
   user?: User;
   constructor(private http: HttpClient) {}
 
-  async register(user: User): Promise<void> {
-    this.user = await lastValueFrom(
-      this.http.post<User>(this._url('api/users/register'), user)
-    );
+  async register(user: User): Promise<void | HttpErrorResponse> {
+    try {
+      this.user = await lastValueFrom(
+        this.http.post<User>(this._url('api/users/register'), user)
+      );
+    } catch (error) {
+      return error as HttpErrorResponse;
+    }
+  }
+
+  async login(user: User): Promise<void | HttpErrorResponse> {
+    try {
+      this.user = await lastValueFrom(
+        this.http.post<User>(this._url('api/users/signin'), user)
+      );
+    } catch (error) {
+      return error as HttpErrorResponse;
+    }
   }
 
   private _url(url: string): string {

@@ -54,13 +54,12 @@ export class LoginComponent {
   }
 
   async login(): Promise<void> {
-    console.log('logging in with the following credentials:');
-    console.log('username: ', this.username);
-    console.log('password: ', this.password);
+    const errorResponse = await this.backend.login(this._currentUser);
+    if (errorResponse) this.errorMessage = errorResponse.error.errorMessage;
   }
   async register(): Promise<void> {
-    console.log('registering ...');
-    await this.backend.register(this._currentUser);
+    const errorResponse = await this.backend.register(this._currentUser);
+    if (errorResponse) this.errorMessage = errorResponse.error.errorMessage;
   }
 
   private get _currentUser(): User {
