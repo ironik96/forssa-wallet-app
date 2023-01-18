@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './models/user.model';
 import { lastValueFrom } from 'rxjs';
 
-const BASE_URL = 'localhost:8080';
+const BASE_URL = 'http://localhost:8080';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,7 +13,7 @@ export class BackendService {
 
   async register(user: User): Promise<void> {
     this.user = await lastValueFrom(
-      this.http.get<User>(this._url('api/users/register'))
+      this.http.post<User>(this._url('api/users/register'), user)
     );
   }
 

@@ -50,7 +50,7 @@ export class LoginComponent {
     this.username = formControl.value.username;
     this.password = formControl.value.password;
     this.isRegistering ? await this.register() : await this.login();
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   async login(): Promise<void> {
@@ -60,7 +60,7 @@ export class LoginComponent {
   }
   async register(): Promise<void> {
     console.log('registering ...');
-    this.backend.register(this._currentUser);
+    await this.backend.register(this._currentUser);
   }
 
   private get _currentUser(): User {
