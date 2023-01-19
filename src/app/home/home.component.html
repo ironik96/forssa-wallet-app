@@ -1,8 +1,8 @@
-<div *ngIf="bankAccounts" class="main-container">
+<div *ngIf="bankAccount" class="main-container">
   <div class="balance container my-border">
     <p>Balance:</p>
     <div class="spacer"></div>
-    <p>$320</p>
+    <p>{{ bankAccount.balance }} KD</p>
   </div>
   <div class="deposit container my-border">
     <p>Deposit:</p>
@@ -17,6 +17,6 @@
     <button>Withdraw</button>
   </div>
 </div>
-<div *ngIf="!bankAccounts" class="main-container">
-  <button>create account</button>
+<div *ngIf="!bankAccount" class="main-container">
+  <button (click)="createBankAccount()">create new account</button>
 </div>

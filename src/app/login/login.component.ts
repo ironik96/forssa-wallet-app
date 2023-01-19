@@ -54,12 +54,20 @@ export class LoginComponent {
   }
 
   async login(): Promise<void> {
-    const errorResponse = await this.backend.login(this._currentUser);
-    if (errorResponse) this.errorMessage = errorResponse.error.errorMessage;
+    await this.backend
+      .login(this._currentUser)
+      .catch(
+        (errorResponse) =>
+          (this.errorMessage = errorResponse.error.errorMessage)
+      );
   }
   async register(): Promise<void> {
-    const errorResponse = await this.backend.register(this._currentUser);
-    if (errorResponse) this.errorMessage = errorResponse.error.errorMessage;
+    await this.backend
+      .register(this._currentUser)
+      .catch(
+        (errorResponse) =>
+          (this.errorMessage = errorResponse.error.errorMessage)
+      );
   }
 
   private get _currentUser(): User {

@@ -17,4 +17,8 @@ export class StorageService {
     const userString = localStorage.getItem(AUTH_KEY);
     return userString ? JSON.parse(userString) : null;
   }
+
+  removeUser(): void {
+    localStorage.removeItem(AUTH_KEY);
+  }
 }

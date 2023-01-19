@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { BankAccount } from '../models/bank-account.model';
@@ -14,9 +15,15 @@ export class HomeComponent {
     this.user = this.backend.user!;
   }
 
-  get bankAccounts(): BankAccount[] | null {
-    return typeof this.user.bankAccounts === 'undefined'
-      ? null
-      : this.user.bankAccounts;
+  get bankAccount(): BankAccount | null {
+    return this.user.bankAccounts == null ? null : this.user.bankAccounts[0];
+  }
+
+  createBankAccount() {
+    this.backend
+      .createBankAccount()
+      .catch((errorResponse: HttpErrorResponse) =>
+        console.log(errorResponse.error.errorMessage)
+      );
   }
 }
