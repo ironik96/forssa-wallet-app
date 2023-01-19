@@ -9,8 +9,6 @@ import { BackendService } from './backend.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  // you would usually put this in it's own service and not access it directly!
-  // this is just for the sake of the demo.
   get isLoggedIn(): boolean {
     return this.backend.user != null;
   }

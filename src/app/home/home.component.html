@@ -1,4 +1,4 @@
-<div class="main-container">
+<div *ngIf="bankAccounts" class="main-container">
   <div class="balance container my-border">
     <p>Balance:</p>
     <div class="spacer"></div>
@@ -16,4 +16,7 @@
     <div class="spacer"></div>
     <button>Withdraw</button>
   </div>
+</div>
+<div *ngIf="!bankAccounts" class="main-container">
+  <button>create account</button>
 </div>
